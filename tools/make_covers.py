@@ -22,6 +22,14 @@ EPS = [
  (6, "Mehak & Hamza", "I'm outside your door."),
  (7, "Sara & Rayyan", "Hey. I know I shouldn't text."),
  (8, "Sara & Rayyan", "I'm not asking to come back."),
+ (9, "Sara & Rayyan", "You said it was the first honest thing in a year."),
+ (10, "Sara & Rayyan", "I'm not asking you to forgive me tonight."),
+ (11, "Zoya & Ayaan", "I'm at the cafe. Where are you?"),
+ (12, "Zoya & Ayaan", "Your sister asked who I am."),
+ (13, "Mehak & Hamza", "Did you read the letter?"),
+ (14, "Mehak & Hamza", "Dinner tomorrow? I'll cook."),
+ (15, "Noor & Daniyal", "My mother gave me your number. I'm sorry in advance."),
+ (16, "Noor & Daniyal", "I read the poem you sent."),
 ]
 
 def spaced(d, xy, text, font, fill, sp, center=False):

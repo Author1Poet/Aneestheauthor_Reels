@@ -5,7 +5,7 @@ as the chat grows, a slow camera push-in runs throughout, and a closing line fad
 over the dimmed chat. Pop sounds are synthesised. No logos, no watermark.
 Usage: make_dm.py <spec.json> <out.mp4>
 """
-import json, math, subprocess, sys, wave
+import json, math, os, subprocess, sys, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
@@ -89,20 +89,39 @@ def build(spec, out):
     f_small = F("Regular", 26)
     f_name = F("SemiBold", 44)
     f_mid = F("Regular", 30)
+    f_input = F("Regular", 34)
 
     # ---- timeline
-    t = 1.0
+    COVER_HOLD, COVER_FADE = 0.9, 0.35
+    cover_path = spec.get('cover')
+    cover_im = None
+    if cover_path:
+        for cand in (cover_path, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', cover_path)):
+            if os.path.exists(cand):
+                cover_im = Image.open(cand).convert('RGB').resize((W, H))
+                break
+        if cover_im is None:
+            raise SystemExit('cover not found: %s' % cover_path)
+    cov_off = COVER_HOLD if cover_im is not None else 0.0
+    t = 1.0 + cov_off
     ev = []  # dict(kind, sent, img, t_typing, t_show)
     for i, (who, text) in enumerate(msgs):
         sent = who == "S"
         img = bubble_image(text, sent, f_msg)
         read = max(1.5, 0.052 * len(text) + 0.7)
         if not sent:
-            ev.append(dict(sent=False, img=img, typing=t, show=t + 0.95))
+            ev.append(dict(sent=False, img=img, typing=t, show=t + 0.95, text=text))
             t = t + 0.95 + read
         else:
-            ev.append(dict(sent=True, img=img, typing=None, show=t))
+            ev.append(dict(sent=True, img=img, typing=None, show=t, text=text))
             t = t + read * 0.9
+    prev_show = cov_off
+    for e in ev:
+        if e['sent']:
+            dt = min(1.0, max(0.45, 0.032 * len(e['text'])))
+            e['ttype'] = max(e['show'] - dt, prev_show + 0.25)
+            e['tdur'] = max(e['show'] - e['ttype'], 0.2)
+        prev_show = e['show']
     t_close = t + 0.5
     dur = t_close + 4.4
     nframes = int(dur * FPS)
@@ -185,7 +204,6 @@ def build(spec, out):
         bd.line([(0, -60 + k + 60), (W, -60 + k + 60)], fill=BG + (255,))
     bd.rounded_rectangle((SIDE, 130, W - SIDE, 240), 55, outline=(70, 70, 76, 255), width=3, fill=(30, 30, 33, 255))
     bd.ellipse((SIDE + 20, 150, SIDE + 90, 220), fill=(60, 60, 66, 255))
-    bd.text((SIDE + 118, 160), "Message...", font=f_mid, fill=(120, 120, 126, 255))
     hh = "@aneestheauthor"
     bd.text(((W - f_small.getlength(hh)) / 2, 300), hh, font=f_small, fill=(110, 110, 116, 255))
     # fade strip above the input bar
@@ -283,6 +301,30 @@ def build(spec, out):
         frame.alpha_composite(top, (0, 0))
         frame.alpha_composite(fade, (0, VIEW_BOTTOM - 70))
         frame.alpha_composite(bot, (0, VIEW_BOTTOM))
+        # input bar: placeholder, or the next sent message being typed
+        typed = None
+        for e in ev:
+            if e['sent'] and e['ttype'] <= tt < e['show']:
+                k = int(len(e['text']) * min((tt - e['ttype']) / e['tdur'] * 1.15, 1.0))
+                typed = e['text'][:max(k, 1)]
+        idraw = ImageDraw.Draw(frame)
+        iy = VIEW_BOTTOM + 160
+        if typed is None:
+            idraw.text((SIDE + 118, iy), "Message...", font=f_mid, fill=(120, 120, 126, 255))
+        else:
+            shown = typed
+            if f_input.getlength(shown) > 700:
+                while f_input.getlength('\u2026' + shown) > 700:
+                    shown = shown[1:]
+                shown = '\u2026' + shown
+            idraw.text((SIDE + 118, iy - 3), shown, font=f_input, fill=(240, 240, 244, 255))
+            if int(tt * 3.5) % 2 == 0:
+                cx = SIDE + 118 + f_input.getlength(shown) + 4
+                idraw.rectangle((cx, iy - 2, cx + 3, iy + 36), fill=(200, 200, 206, 255))
+            sx, sy = W - SIDE - 62, VIEW_BOTTOM + 185
+            idraw.ellipse((sx - 36, sy - 36, sx + 36, sy + 36), fill=(104, 78, 236, 255))
+            idraw.line([(sx, sy + 14), (sx, sy - 14)], fill=(255, 255, 255, 255), width=5)
+            idraw.line([(sx - 12, sy - 3), (sx, sy - 15), (sx + 12, sy - 3)], fill=(255, 255, 255, 255), width=5, joint='curve')
         rgb = frame.convert("RGB")
         # slow camera push-in
         z = 1.0 + 0.055 * (tt / dur)
@@ -292,7 +334,7 @@ def build(spec, out):
         # closing card
         ca = smooth((tt - t_close) / 0.9)
         if ca > 0:
-            arr = np.asarray(rgb, np.float32) * (1 - 0.9 * ca)
+            arr = np.asarray(rgb, np.float32) * (1 - 0.95 * ca)
             rgb = Image.fromarray(arr.astype(np.uint8))
             d = ImageDraw.Draw(rgb)
             lh = 88
@@ -316,6 +358,9 @@ def build(spec, out):
                 hw2 = f_small.getlength(h_)
                 c2 = int(130 * fa)
                 d.text(((W - hw2) / 2, y0 + total + 160), h_, font=f_small, fill=(c2, c2, c2))
+        if cover_im is not None and tt < cov_off + COVER_FADE:
+            ca2 = 1.0 if tt < cov_off else 1.0 - (tt - cov_off) / COVER_FADE
+            rgb = Image.blend(rgb, cover_im, ca2)
         enc.stdin.write(rgb.tobytes())
     enc.stdin.close()
     enc.wait()
