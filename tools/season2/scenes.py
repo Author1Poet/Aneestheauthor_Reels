@@ -242,6 +242,146 @@ class Scene:
         self.vig = .6
         self.mood = dict(tint=(.94, .9, 1.0), key=(255, 190, 130), key_dir=1, key_k=.26)
 
+
+    def build_kitchen(self, v):
+        v = v or "dawn"
+        d = (lin("wall", [(0, "#d9cdb0", 1), (1, "#b8a888", 1)]) + lin("sky", [(0, "#0a1030", 1), (.6, "#1a2450", 1), (1, "#33407a", 1)] if v == "night" else [(0, "#2a3a66", 1), (.6, "#d98a5a", 1), (1, "#ffcf8a", 1)]) +
+             lin("cab", [(0, "#6a4a36", 1), (1, "#4a3022", 1)]) + lin("cnt", [(0, "#8a7a6a", 1), (1, "#5c5046", 1)]) + lin("fr", [(0, "#e8e4de", 1), (1, "#bdb8b0", 1)]))
+        b = ['<rect width="1080" height="960" fill="url(#wall)"/>']
+        for y in range(0, 640, 70):
+            for x in range(-40 if (y // 70) % 2 else 0, 1080, 80):
+                b.append(f'<rect x="{x}" y="{y}" width="76" height="66" rx="4" fill="#fff" opacity=".10"/>')
+        wx = 70
+        b.append(f'<rect x="{wx}" y="100" width="300" height="360" rx="8" fill="url(#sky)"/>')
+        b.append(f'<circle cx="{wx + 210}" cy="420" r="60" fill="#fff2c0" opacity=".9" filter="url(#b16)"/>')
+        for i in range(10):
+            xx = wx + 8 + i * 30
+            hh = random.Random(i).uniform(50, 130)
+            b.append(f'<rect x="{xx}" y="{460 - hh}" width="26" height="{hh}" fill="#1a2240" opacity=".85"/>')
+        b.append(f'<rect x="{wx}" y="100" width="300" height="360" rx="8" fill="none" stroke="#f0ece4" stroke-width="14"/><line x1="{wx + 150}" y1="100" x2="{wx + 150}" y2="460" stroke="#f0ece4" stroke-width="9"/><line x1="{wx}" y1="280" x2="{wx + 300}" y2="280" stroke="#f0ece4" stroke-width="9"/>')
+        # shelf with jars
+        b.append('<rect x="440" y="170" width="300" height="14" rx="5" fill="#6a4a36"/>')
+        for i, col in enumerate(("#c9712f", "#8a5a30", "#c2a14a", "#7a8a4a", "#a8432c")):
+            b.append(f'<rect x="{456 + i * 56}" y="{110}" width="44" height="60" rx="8" fill="{col}"/><rect x="{462 + i * 56}" y="{98}" width="32" height="14" rx="4" fill="#3a2a22"/>')
+        # hanging utensils
+        b.append('<rect x="780" y="120" width="230" height="8" rx="4" fill="#5a4636"/>')
+        for i, x in enumerate((800, 850, 905, 960)):
+            b.append(f'<line x1="{x}" y1="128" x2="{x}" y2="{200 + i % 2 * 20}" stroke="#aaa" stroke-width="5"/><ellipse cx="{x}" cy="{232 + i % 2 * 20}" rx="{22 - i * 2}" ry="{30 + i * 2}" fill="#b8bcc4"/>')
+        # calendar
+        b.append('<rect x="780" y="300" width="130" height="170" fill="#f4eee0"/><rect x="780" y="300" width="130" height="34" fill="#b5432f"/>' + "".join(f'<rect x="{792 + (k % 5) * 22}" y="{346 + (k // 5) * 24}" width="14" height="14" fill="#8a8070" opacity=".5"/>' for k in range(20)))
+        # counter, cabinets, stove
+        b.append('<rect x="0" y="640" width="1080" height="320" fill="url(#cab)"/><rect x="0" y="624" width="1080" height="26" fill="url(#cnt)"/>')
+        for x in range(0, 1080, 216):
+            b.append(f'<rect x="{x + 14}" y="670" width="188" height="270" rx="8" fill="#000" opacity=".14"/><circle cx="{x + 180}" cy="700" r="7" fill="#d8c7a0"/>')
+        px = 810
+        b.append(f'<rect x="{px - 110}" y="596" width="220" height="30" rx="6" fill="#222"/><ellipse cx="{px}" cy="590" rx="92" ry="14" fill="#8a8e98"/><path d="M{px - 92},590 L{px - 80},520 C{px - 40},508 {px + 40},508 {px + 80},520 L{px + 92},590 Z" fill="#a8acb8"/><ellipse cx="{px}" cy="520" rx="80" ry="12" fill="#b8793c"/><path d="M{px + 92},560 C{px + 150},550 {px + 150},590 {px + 94},584" stroke="#2a2a30" stroke-width="12" fill="none"/>')
+        b.append(f'<path d="M{px - 50},560 C{px - 30},610 {px + 30},610 {px + 50},560" fill="#ff8a3c" opacity=".0"/>')
+        self.static = svg("".join(b), d)
+        win = svg(f'<ellipse cx="{wx + 160}" cy="420" rx="320" ry="260" fill="{"#7a8cff" if v == "night" else "#ffb878"}" opacity="{.16 if v == "night" else .42}" filter="url(#b60)"/>')
+        self.glows.append((win, .06, .25, 0.7))
+        lamp = svg('<ellipse cx="540" cy="80" rx="520" ry="230" fill="#ffd9a0" opacity=".38" filter="url(#b60)"/>')
+        self.glows.append((lamp, .08, 1.4, 0.2))
+        self.steam = (px, 505)
+        self.vig = .5
+        self.mood = dict(tint=(1.0, .95, .88), key=(255, 200, 140), key_dir=-1, key_k=.28)
+
+    def build_desk(self, v):
+        v = v or "hostel"
+        cx = self.cx
+        d = (lin("wall", [(0, "#1b2236", 1), (1, "#2a2a42", 1)]) + lin("win", [(0, "#080c22", 1), (1, "#2a2f5e", 1)]) + lin("desk", [(0, "#6a4a36", 1), (1, "#3e2a20", 1)]))
+        b = ['<rect width="1080" height="960" fill="url(#wall)"/>']
+        wx = 90 if cx > 500 else 700
+        b.append(f'<rect x="{wx}" y="110" width="290" height="400" rx="8" fill="url(#win)"/>')
+        rnd = random.Random(11)
+        for i in range(15):
+            xx = wx + 8 + i * 18
+            hh = rnd.uniform(40, 160)
+            b.append(f'<rect x="{xx}" y="{510 - hh}" width="16" height="{hh}" fill="#0a0d22"/>')
+            for k in range(int(hh // 22)):
+                if rnd.random() < .45:
+                    b.append(f'<rect x="{xx + 3}" y="{510 - hh + k * 22 + 6}" width="8" height="8" fill="#ffd68a" opacity=".8"/>')
+        for i in range(30):
+            b.append(f'<circle cx="{rnd.uniform(wx + 10, wx + 280):.0f}" cy="{rnd.uniform(120, 300):.0f}" r="{rnd.uniform(1, 2.2):.1f}" fill="#fff" opacity="{rnd.uniform(.3, .8):.2f}"/>')
+        b.append(f'<rect x="{wx}" y="110" width="290" height="400" rx="8" fill="none" stroke="#cfcfe0" stroke-width="12"/><line x1="{wx + 145}" y1="110" x2="{wx + 145}" y2="510" stroke="#cfcfe0" stroke-width="8"/>')
+        # shelf with books
+        sx = 700 if cx > 500 else 90
+        b.append(f'<rect x="{sx}" y="300" width="300" height="12" rx="4" fill="#5a4030"/>')
+        xx = sx + 10
+        while xx < sx + 280:
+            w_, h_ = rnd.randint(18, 32), rnd.randint(60, 100)
+            b.append(f'<rect x="{xx}" y="{300 - h_}" width="{w_}" height="{h_}" fill="{rnd.choice(["#b04a4a", "#4a6ab0", "#c9a24a", "#4a9a78", "#8a5ab0"])}"/>')
+            xx += w_ + 3
+        b.append(f'<rect x="{sx}" y="150" width="300" height="12" rx="4" fill="#5a4030"/>')
+        for i in range(4):
+            b.append(f'<circle cx="{sx + 40 + i * 70}" cy="130" r="18" fill="{["#c9a24a", "#7a8a9a", "#a86a4a", "#6a9a8a"][i]}"/>')
+        # desk
+        b.append('<rect x="0" y="720" width="1080" height="240" fill="url(#desk)"/><rect x="0" y="706" width="1080" height="20" rx="6" fill="#7a5a44"/>')
+        # laptop (back faces viewer) and lamp
+        lx = cx - 180 if cx < 500 else cx - 120
+        b.append(f'<rect x="{cx - 210}" y="650" width="150" height="70" rx="6" fill="#c4c8d0"/><path d="M{cx - 210},650 L{cx - 60},650 L{cx - 60},720 L{cx - 210},720 Z" fill="#9aa0aa" opacity=".4"/>')
+        b.append(f'<circle cx="{cx - 135}" cy="686" r="9" fill="#e8ecf4" opacity=".7"/>')
+        lampx = cx + 230 if cx < 500 else cx - 330
+        b.append(f'<rect x="{lampx}" y="580" width="10" height="130" fill="#222"/><path d="M{lampx - 50},590 L{lampx + 60},590 L{lampx + 40},540 L{lampx - 30},540 Z" fill="#f4d890"/>')
+        b.append(f'<rect x="{cx + 110}" y="670" width="60" height="50" rx="8" fill="#e8e0d0"/><ellipse cx="{cx + 140}" cy="670" rx="30" ry="9" fill="#a8743c"/>')
+        if v == "packing":
+            b.append(f'<rect x="{sx - 30}" y="740" width="360" height="190" rx="18" fill="#3a4a6a"/><rect x="{sx - 10}" y="760" width="320" height="150" rx="12" fill="#e6dccb"/>')
+            for k, col in enumerate(("#b04a4a", "#4a6ab0", "#c9a24a", "#e8e0d0")):
+                b.append(f'<rect x="{sx + 20 + k * 66}" y="{770 + k % 2 * 14}" width="58" height="{110 - k % 2 * 14}" rx="8" fill="{col}" opacity=".9"/>')
+            b.append(f'<rect x="{sx - 40}" y="690" width="100" height="70" fill="#a8844a"/><rect x="{sx - 40}" y="720" width="100" height="10" fill="#c8a468"/>')
+        self.static = svg("".join(b), d)
+        lm = svg(f'<ellipse cx="{lampx + 5}" cy="560" rx="300" ry="280" fill="#ffc47a" opacity=".5" filter="url(#b60)"/><ellipse cx="{lampx + 5}" cy="560" rx="90" ry="90" fill="#ffe4b0" opacity=".6" filter="url(#b30)"/>')
+        self.glows.append((lm, .06, 1.1, .3))
+        lap = svg(f'<ellipse cx="{cx - 135}" cy="700" rx="220" ry="150" fill="#7ab0ff" opacity=".22" filter="url(#b30)"/>')
+        self.glows.append((lap, .12, 1.6, 1.0))
+        self.rain = (wx + 4, 116, wx + 286, 506, 30)
+        self.vig = .6
+        self.mood = dict(tint=(.94, .94, 1.04), key=(255, 190, 130), key_dir=1 if cx < 500 else -1, key_k=.22)
+
+    def build_cafe(self, v):
+        v = v or "closing"
+        d = (lin("wall", [(0, "#5a3028", 1), (1, "#32201e", 1)]) + lin("win", [(0, "#0c1230", 1), (1, "#2a2a52", 1)]) + lin("cnt", [(0, "#7a5a44", 1), (1, "#3e2c22", 1)]))
+        b = ['<rect width="1080" height="960" fill="url(#wall)"/>']
+        for x in range(0, 1080, 120):
+            b.append(f'<rect x="{x}" y="0" width="60" height="640" fill="#000" opacity=".10"/>')
+        b.append('<rect x="690" y="130" width="320" height="420" rx="140" fill="url(#win)"/>')
+        rnd = random.Random(13)
+        for i in range(22):
+            x, y, r = rnd.uniform(710, 990), rnd.uniform(300, 520), rnd.uniform(6, 16)
+            b.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.0f}" fill="{rnd.choice(["#ff6a5a", "#ffc46a", "#9fc6ff", "#9affc0"])}" opacity="{rnd.uniform(.3, .7):.2f}" filter="url(#b8)"/>')
+        b.append('<rect x="690" y="130" width="320" height="420" rx="140" fill="none" stroke="#a4784a" stroke-width="14"/>')
+        # shelf cups
+        b.append('<rect x="60" y="250" width="440" height="14" rx="5" fill="#8a6244"/><rect x="60" y="400" width="440" height="14" rx="5" fill="#8a6244"/>')
+        for i in range(9):
+            col = ["#e8dccb", "#d8a46a", "#9ab8a8", "#c8786a"][i % 4]
+            b.append(f'<path d="M{82 + i * 46},{250} l4,-34 h28 l4,34 Z" fill="{col}"/>')
+            b.append(f'<path d="M{82 + i * 46},{400} l4,-34 h28 l4,34 Z" fill="{["#c8786a", "#e8dccb", "#9ab8a8", "#d8a46a"][i % 4]}"/>')
+        # chalkboard
+        b.append('<rect x="120" y="90" width="300" height="120" rx="8" fill="#26302c" stroke="#8a6244" stroke-width="8"/>' +
+                 "".join(f'<line x1="146" y1="{120 + k * 24}" x2="{300 + (k % 2) * 60}" y2="{120 + k * 24}" stroke="#e8e8e0" stroke-width="3" opacity=".55"/>' for k in range(3)))
+        # pendant lamps
+        for x, ln in ((600, 150), (330, 70), (520, 330)):
+            b.append(f'<line x1="{x}" y1="0" x2="{x}" y2="{ln}" stroke="#1a1210" stroke-width="3"/><path d="M{x - 40},{ln + 46} L{x + 40},{ln + 46} L{x + 18},{ln} L{x - 18},{ln} Z" fill="#2a1c18"/><ellipse cx="{x}" cy="{ln + 48}" rx="20" ry="8" fill="#ffe4a8"/>')
+        # counter w/ espresso machine
+        b.append('<rect x="0" y="640" width="1080" height="320" fill="url(#cnt)"/><rect x="0" y="626" width="1080" height="24" fill="#a07a58"/>')
+        b.append('<rect x="760" y="530" width="230" height="96" rx="10" fill="#b8bcc4"/><rect x="780" y="500" width="190" height="40" rx="8" fill="#8a8e98"/><rect x="830" y="590" width="20" height="36" fill="#222"/><circle cx="930" cy="565" r="16" fill="#e8d28a"/>')
+        # stacked chairs
+        for i in range(3):
+            b.append(f'<g transform="translate({600 + i * 6},{600 - i * 10})" opacity=".0"></g>')
+        F = self.cx > 500
+        inner = "".join(b)
+        txt = '<text x="%d" y="330" font-family="Inter" font-size="46" font-weight="700" fill="#ff7a6a" text-anchor="middle" opacity=".85" >CLOSED</text>' % (230 if F else 850)
+        if F:
+            inner = '<g transform="translate(1080,0) scale(-1,1)">' + inner + '</g>'
+        self.static = svg(inner + txt, d)
+        for x, ln in ((600, 150), (330, 70), (520, 330)):
+            xx = 1080 - x if F else x
+            g = svg(f'<ellipse cx="{xx}" cy="{ln + 90}" rx="230" ry="190" fill="#ffc47a" opacity=".42" filter="url(#b60)"/>')
+            self.glows.append((g, .05, 1.0 + x / 900, x / 100))
+        self.rain = (80, 140, 380, 540, 50) if F else (700, 140, 1000, 540, 50)
+        self.steam = (220, 498) if F else (860, 498)
+        self.vig = .55
+        self.mood = dict(tint=(1.0, .92, .86), key=(255, 190, 120), key_dir=-1, key_k=.28)
+
     # ------------------------------------------------------------ frame
     def render(self, t):
         im = self.static.copy()

@@ -1,0 +1,313 @@
+{
+ "chars": [
+  "sara",
+  "rayyan"
+ ],
+ "scenes": [
+  {
+   "kind": "bedroom"
+  },
+  {
+   "kind": "cafe",
+   "variant": "closing"
+  }
+ ],
+ "layout": [
+  "L",
+  "R"
+ ],
+ "places": [
+  "Home  ·  11:59 PM",
+  "Closing the café  ·  11:59 PM"
+ ],
+ "time_label": "Today 11:59 PM",
+ "start_emo": [
+  "sad",
+  "tired"
+ ],
+ "start_look": [
+  "phone",
+  "far"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Sunday, 29 November",
+  "time": "11:59",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Unknown number",
+    "text": "Happy birthday Abbu 🤍",
+    "when": "11:59 PM"
+   },
+   {
+    "t": 0.55,
+    "title": "Unknown number",
+    "text": "I know this isn't your number anymore",
+    "when": "11:59 PM"
+   },
+   {
+    "t": 0.95,
+    "title": "Unknown number",
+    "text": "I just didn't know where else to send it",
+    "when": "12:00 AM"
+   },
+   {
+    "t": 1.35,
+    "title": "Wrong number?",
+    "text": "Tap to reply",
+    "when": "Now",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "She",
+    false
+   ],
+   [
+    "texts",
+    false
+   ],
+   [
+    "her",
+    false
+   ],
+   [
+    "late",
+    false
+   ],
+   [
+    "father",
+    false
+   ]
+  ],
+  [
+   [
+    "every",
+    true
+   ],
+   [
+    "birthday.",
+    true
+   ]
+  ],
+  [
+   [
+    "Tonight,",
+    false
+   ],
+   [
+    "he",
+    true
+   ],
+   [
+    "replied.",
+    true
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "sad",
+    "tired"
+   ],
+   "look": [
+    "phone",
+    "far"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Happy birthday Abbu 🤍",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "I know this isn't your number anymore. I just didn't know where else to send it",
+   "emo": [
+    "cry",
+    "worry"
+   ],
+   "pause": 0.8
+  },
+  {
+   "k": "beat",
+   "dur": 1.2,
+   "emo": [
+    "cry",
+    "shock"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "pose": [
+    null,
+    "chest"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "hi. i think this is a wrong number",
+   "emo": [
+    "nervous",
+    "shock"
+   ],
+   "hes": [
+    0.4,
+    0.9,
+    "away"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "oh god. i'm so sorry",
+   "emo": [
+    "shock",
+    "soft"
+   ],
+   "pose": [
+    "mouth",
+    null
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "please don't apologize. i'm so sorry about your father",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "it's been 2 years. i text him every birthday. it's the one number i couldn't delete",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "pause": 1.0,
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "weird thing to say but you're the first person who texted me today",
+   "emo": [
+    "soft",
+    "shock"
+   ],
+   "pause": 0.6
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "it's my birthday too",
+   "emo": [
+    "soft",
+    "shock"
+   ],
+   "burst": true,
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "no way",
+   "emo": [
+    "shock",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "so technically i'm receiving your dad's wish. happy birthday to him. and thank you",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    null,
+    "chest"
+   ],
+   "focus": 1,
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "thank you for not blocking me",
+   "emo": [
+    "laugh",
+    "cry"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "you can text this number every birthday. i won't change it",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "you'd do that?",
+   "emo": [
+    "cry",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "someone should be there to read it",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "focus": 0,
+   "stay": 2.6,
+   "pause": 1.3
+  }
+ ],
+ "closer": [
+  "Some wrong numbers",
+  "arrive right on time."
+ ],
+ "cta": "Send this to someone who is missing someone",
+ "pad": [
+  110.0,
+  164.81,
+  196.0,
+  261.63
+ ],
+ "id": 7,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 7
+}

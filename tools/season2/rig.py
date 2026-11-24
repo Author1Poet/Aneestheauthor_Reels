@@ -73,6 +73,26 @@ CAST = {
                  style="noor", mouth_w=48, sleeve=(88, 120, 164), belt=True, blink=1.0, fidget=1.1),
 }
 
+
+CAST.update({
+    "abbu": dict(name="Abbu", skin=(184, 132, 98), hair=(150, 146, 142), gray=(190, 186, 180), outfit=(232, 222, 200), trim=(112, 74, 50), dup=None,
+                 fw=106, jaw=78, cw=36, chin=148, iris=(60, 40, 26), ew=27, eh=14.5, lash=0, brow=(150, 146, 142), bt=11, arch=3,
+                 lip=(150, 84, 76), glasses=None, age=1, earring=None, phone=(52, 66, 90), nose=1.25, tired=0.12,
+                 style="abbu", mouth_w=46, sleeve=(232, 222, 200), blink=1.5, fidget=0.4),
+    "zoya": dict(name="Zoya", skin=(228, 178, 140), hair=(96, 30, 46), outfit=(36, 36, 46), trim=(244, 242, 238), dup=None,
+                 fw=94, jaw=56, cw=20, chin=150, iris=(66, 40, 30), ew=29, eh=17, lash=1, brow=(60, 26, 30), bt=5.5, arch=8,
+                 lip=(190, 52, 70), glasses=None, earring=(236, 200, 110), phone=(236, 236, 242), nose=0.85, tired=0.0,
+                 style="zoya", mouth_w=44, sleeve=(36, 36, 46), belt=True, blink=0.9, fidget=1.5),
+    "daniyal": dict(name="Daniyal", skin=(216, 166, 126), hair=(40, 28, 22), outfit=(150, 180, 214), trim=(150, 40, 52), dup=None,
+                    fw=98, jaw=66, cw=28, chin=150, iris=(52, 34, 24), ew=27, eh=16, lash=0, brow=(40, 28, 22), bt=8.5, arch=3,
+                    lip=(172, 94, 88), glasses=("black", 1), stubble=0, earring=None, phone=(40, 44, 54), nose=1.05, tired=0.15,
+                    style="daniyal", mouth_w=46, sleeve=(150, 180, 214), blink=1.1, fidget=1.2),
+    "rayyan": dict(name="Rayyan", skin=(148, 102, 74), hair=(22, 18, 18), outfit=(240, 238, 232), trim=(40, 40, 46), dup=None,
+                   fw=100, jaw=66, cw=28, chin=152, iris=(40, 26, 20), ew=28, eh=16, lash=0, brow=(24, 18, 18), bt=8.5, arch=4,
+                   lip=(124, 70, 62), glasses=None, earring=None, phone=(206, 96, 70), nose=1.1, tired=0.05,
+                   style="rayyan", mouth_w=48, sleeve=(240, 238, 232), blink=1.0, fidget=1.0),
+})
+
 # ------------------------------------------------------------------ face
 def face_d(c, grow=0):
     fw, j, cw, chy = c["fw"] + grow, c["jaw"] + grow, c["cw"], c["chin"] + grow
@@ -274,6 +294,80 @@ def strands(rnd, n, region, col, op=.22, w=1.8):
     return "".join(out)
 
 
+
+def arcpts(cx, cy, rx, ry, a0, a1, n=24):
+    return [(cx + rx * math.cos(math.radians(a0 + (a1 - a0) * i / n)), cy + ry * math.sin(math.radians(a0 + (a1 - a0) * i / n))) for i in range(n + 1)]
+
+
+def hair_new(c):
+    st = c["style"]
+    hc = c["hair"]
+    hl, hd = lighten(hc, .28), darken(hc, .3)
+    rnd = random.Random(sum(map(ord, st)))
+    defs = lin("hg", [(0, hx(hl), 1), (.5, hx(hc), 1), (1, hx(hd), 1)]) + lin("bn", [(0, hx(lighten((150, 40, 52), .2)), 1), (1, hx((110, 28, 40)), 1)])
+    back = front = None
+    if st == "abbu":
+        s = []
+        for sg in (-1, 1):
+            s.append(f'<path d="M{sg * 104},-14 C{sg * 112},-80 {sg * 98},-122 {sg * 72},-138 C{sg * 84},-102 {sg * 88},-58 {sg * 90},-6 Z" fill="url(#hg)"/>')
+            for i in range(8):
+                s.append(f'<path d="M{sg * (96 + i)},{-10 - i * 12} C{sg * (92 - i)},{-30 - i * 12} {sg * (88)},{-50 - i * 10} {sg * (80 - i * 2)},{-96 - i * 6}" stroke="#fff" stroke-width="1.6" fill="none" opacity=".25"/>')
+        for i in range(7):
+            s.append(f'<path d="M{-66 + i * 6},{-142 + i} C{-30},{-168 + i * 2} {26},{-166 + i * 2} {62 - i * 4},{-140 + i}" stroke="{hx(hc)}" stroke-width="1.6" fill="none" opacity=".55"/>')
+        # skin shine on bald top
+        s.append('<ellipse cx="-22" cy="-146" rx="36" ry="12" fill="#fff" opacity=".22"/>')
+        # moustache (over mouth layer later)
+        mo = ('<path d="M-38,66 C-24,50 -6,56 0,62 C6,56 24,50 38,66 C30,84 14,80 0,72 C-14,80 -30,84 -38,66 Z" fill="%s"/>' % hx(hc) +
+              "".join(f'<path d="M{x},{62 + abs(x) * .1} q{4 if x < 0 else -4},10 {2 if x < 0 else -2},16" stroke="#fff" stroke-width="1.6" fill="none" opacity=".35"/>' for x in range(-30, 32, 6)))
+        s.append(mo)
+        front = sprite(hs("".join(s)), HX - 140, HY - 210, 280, 250 + 120, defs)
+        back = sprite(hs("".join(f'<path d="M{sg * 100},-10 C{sg * 108},20 {sg * 100},50 {sg * 90},56 Z" fill="{hx(hd)}"/>' for sg in (-1, 1))), HX - 140, HY - 210, 280, 270, defs)
+    elif st == "zoya":
+        bk = f'<path d="M-118,-70 C-138,-6 -136,70 -116,128 L116,128 C136,70 138,-6 118,-70 C100,-150 -100,-150 -118,-70 Z" fill="url(#hg)"/>'
+        back = sprite(hs(bk), HX - 190, HY - 240, 380, 420, defs)
+        s = ['<path d="M-106,-34 C-122,-136 -64,-196 4,-198 C70,-196 124,-132 106,-34 C102,-84 62,-124 0,-126 C-62,-124 -100,-84 -106,-34 Z" fill="url(#hg)"/>']
+        L = "M-8,-168 C-86,-152 -122,-100 -118,-30 C-114,36 -128,92 -112,138 L-88,138 C-98,92 -94,36 -92,-14 C-90,-64 -58,-110 -10,-128 Z"
+        s.append(f'<path d="{L}" fill="url(#hg)"/><path d="{L}" fill="url(#hg)" transform="scale(-1,1)"/>')
+        # curtain bangs
+        s.append('<path d="M-6,-170 C-60,-150 -100,-110 -108,-60 C-70,-96 -34,-116 -4,-120 Z" fill="url(#hg)"/>')
+        s.append('<path d="M-2,-170 C54,-152 92,-110 102,-52 C70,-92 36,-112 0,-118 Z" fill="url(#hg)"/>')
+        for sg in (-1, 1):
+            for i in range(7):
+                s.append(f'<path d="M{sg * (14 + i * 11)},{-150 + i * 4} C{sg * (70 + i * 5)},{-120} {sg * (90 + i * 3)},{-30} {sg * (100 - i)},{60 + i * 10}" stroke="{hx(hl)}" stroke-width="2" fill="none" opacity=".26"/>')
+        front = sprite(hs("".join(s)), HX - 190, HY - 240, 380, 420, defs)
+    elif st == "daniyal":
+        bk = "".join(f'<circle cx="{sg * (98 + 8 * math.sin(i))}" cy="{-30 + i * 22}" r="{26 - i * 2}" fill="{hx(hd)}"/>' for sg in (-1, 1) for i in range(3))
+        back = sprite(hs(bk), HX - 140, HY - 210, 280, 270, defs)
+        s = []
+        pts = arcpts(0, -4, 108, 148, 188, 352, 16)
+        for i, (x, y) in enumerate(pts):
+            s.append(f'<circle cx="{x:.0f}" cy="{y - 16:.0f}" r="{rnd.uniform(26, 36):.0f}" fill="url(#hg)"/>')
+        for i in range(10):
+            s.append(f'<circle cx="{rnd.uniform(-84, 84):.0f}" cy="{rnd.uniform(-176, -128):.0f}" r="{rnd.uniform(22, 34):.0f}" fill="url(#hg)"/>')
+        s.append('<path d="M-104,-34 C-100,-96 -60,-124 0,-122 C60,-124 100,-96 104,-34 C86,-70 50,-96 0,-92 C-50,-96 -86,-70 -104,-34 Z" fill="url(#hg)"/>')
+        for i in range(14):
+            x = rnd.uniform(-90, 90)
+            s.append(f'<path d="M{x:.0f},{rnd.uniform(-170, -120):.0f} q{rnd.uniform(-10, 10):.0f},{-12} {rnd.uniform(-6, 12):.0f},{-4}" stroke="{hx(hl)}" stroke-width="2.2" fill="none" opacity=".35"/>')
+        front = sprite(hs("".join(s)), HX - 140, HY - 230, 280, 250, defs)
+    elif st == "rayyan":
+        s = []
+        for sg in (-1, 1):
+            s.append(f'<path d="M{sg * 100},-30 C{sg * 108},-8 {sg * 106},18 {sg * 98},34 C{sg * 92},10 {sg * 90},-14 {sg * 92},-30 Z" fill="{hx(hc)}"/>')
+        s.append('<path d="M-110,-28 C-122,-132 -64,-196 0,-198 C64,-196 122,-132 110,-28 Z" fill="url(#bn)"/>')
+        s.append('<path d="M-114,-24 C-116,-52 -112,-70 -108,-84 L108,-84 C112,-70 116,-52 114,-24 C70,-36 -70,-36 -114,-24 Z" fill="#8c2638"/>')
+        for i in range(-10, 11):
+            s.append(f'<path d="M{i * 10.4},-82 L{i * 10.4 + i * .6},-30" stroke="#5e1626" stroke-width="2.2" opacity=".5"/>')
+        for i in range(8):
+            s.append(f'<path d="M{-80 + i * 22},-184 C{-84 + i * 22},-150 {-84 + i * 22},-120 {-80 + i * 22},-92" stroke="#fff" stroke-width="2" fill="none" opacity=".12"/>')
+        front = sprite(hs("".join(s)), HX - 140, HY - 230, 280, 250, defs)
+        back = sprite(hs(f'<path d="M-104,-20 C-112,-110 -64,-184 0,-186 C64,-184 112,-110 104,-20 Z" fill="{hx(hd)}"/>'), HX - 140, HY - 230, 280, 250, defs)
+
+
+    return back, front
+
+NEW_STYLES = ("abbu", "zoya", "daniyal", "rayyan")
+
+
 def sprite_hair(c):
     """returns (back, front) as lists of sprites, each sprite (img,x,y)"""
     st = c["style"]
@@ -356,6 +450,8 @@ def sprite_hair(c):
         s.append(f'<path d="M-92,120 C-40,172 40,172 92,120" stroke="{hx(hjd)}" stroke-width="3" fill="none" opacity=".4"/>')
         s.append('<circle cx="70" cy="176" r="7" fill="#d9a441"/><circle cx="68" cy="174" r="2.4" fill="#fff" opacity=".8"/>')
         front = sprite(hs("".join(s)), HX - 190, HY - 240, 380, 600, defs)
+    if st in NEW_STYLES:
+        return hair_new(c)
     return back, front
 
 
@@ -366,14 +462,50 @@ def sprite_glasses(c):
     r = 36
     b = []
     for sg in (-1, 1):
-        b.append(f'<rect x="{sg * 46 - r}" y="{-6 - 28}" width="{2 * r}" height="56" rx="20" fill="#bfe0ff" opacity=".10"/>')
-        b.append(f'<rect x="{sg * 46 - r}" y="{-6 - 28}" width="{2 * r}" height="56" rx="20" fill="none" stroke="{col}" stroke-width="3"/>')
+        rx_ = 34 if c["glasses"][1] == 1 else 20
+        b.append(f'<rect x="{sg * 46 - r}" y="{-6 - 28}" width="{2 * r}" height="56" rx="{rx_}" fill="#bfe0ff" opacity=".10"/>')
+        b.append(f'<rect x="{sg * 46 - r}" y="{-6 - 28}" width="{2 * r}" height="56" rx="{rx_}" fill="none" stroke="{col}" stroke-width="{4.2 if c["glasses"][1] == 1 else 3}"/>')
     b.append(f'<path d="M-12,-14 C-4,-20 4,-20 12,-14" fill="none" stroke="{col}" stroke-width="3"/>')
     b.append(f'<path d="M-82,-8 L-104,-4 M82,-8 L104,-4" stroke="{col}" stroke-width="3"/>')
     return sprite(hs("".join(b)), HX - 130, HY - 60, 260, 110)
 
 
 # ------------------------------------------------------------------ torso + poses
+
+def torso_new(c, b, o, ol, od, tr, sk):
+    st = c["style"]
+    if st == "abbu":
+        b.append(f'<path d="M226,700 C246,748 314,748 334,700 L346,708 C320,776 240,776 214,708 Z" fill="{hx(darken(sk, .1))}"/>')
+        b.append(f'<path d="M232,700 L238,712 C254,744 306,744 322,712 L328,700 L342,706 L326,722 C300,760 260,760 234,722 L218,706 Z" fill="#f2ead8"/>')
+        for y in (780, 836, 892):
+            b.append(f'<circle cx="280" cy="{y}" r="6" fill="#bfae8a"/>')
+        b.append('<path d="M280,750 L280,960" stroke="#c8b998" stroke-width="3"/>')
+        for sg in (-1, 1):
+            b.append(f'<path d="M{280 + sg * 18},724 C{280 + sg * 52},790 {280 + sg * 128},800 {280 + sg * 150},760 C{280 + sg * 190},820 {280 + sg * 196},920 {280 + sg * 190},960 L{280 + sg * 40},960 C{280 + sg * 44},880 {280 + sg * 30},800 {280 + sg * 18},724 Z" fill="{hx(tr)}"/>')
+            b.append(f'<path d="M{280 + sg * 18},724 C{280 + sg * 30},800 {280 + sg * 44},880 {280 + sg * 40},960" stroke="{hx(darken(tr, .35))}" stroke-width="4" fill="none"/>')
+            for k in range(6):
+                b.append(f'<path d="M{280 + sg * (60 + k * 22)},{800 + k * 8} L{280 + sg * (70 + k * 22)},960" stroke="{hx(darken(tr, .3))}" stroke-width="2" opacity=".28"/>')
+    elif st == "zoya":
+        b.append(f'<path d="M224,700 C246,744 314,744 336,700 L346,712 C320,790 240,790 214,712 Z" fill="{hx(tr)}"/>')
+        b.append(f'<path d="M232,706 C254,746 306,746 328,706" stroke="{hx(darken(tr, .12))}" stroke-width="4" fill="none"/>')
+        b.append('<path d="M262,744 C270,770 290,770 298,744" stroke="#e8c870" stroke-width="2.4" fill="none"/><circle cx="280" cy="772" r="6" fill="#e8c870"/><circle cx="278" cy="770" r="2" fill="#fff" opacity=".8"/>')
+        b.append(f'<path d="M206,704 L246,820 L262,716 L236,700 Z" fill="{hx(ol)}" opacity=".9"/><path d="M354,704 L314,820 L298,716 L324,700 Z" fill="{hx(ol)}" opacity=".9"/>')
+        b.append(f'<path d="M246,820 L280,960 L314,820" stroke="{hx(od)}" stroke-width="3" fill="none"/>')
+    elif st == "daniyal":
+        b.append(f'<path d="M222,700 C246,740 314,740 338,700 L350,716 C322,770 238,770 210,716 Z" fill="{hx(darken(sk, .05))}"/>')
+        b.append(f'<path d="M212,700 L248,748 L262,700 Z" fill="#f4f6fa"/><path d="M348,700 L312,748 L298,700 Z" fill="#f4f6fa"/>')
+        b.append(f'<path d="M270,726 L290,726 L296,740 L284,752 L276,740 Z" fill="{hx(tr)}"/><path d="M276,744 L284,744 L300,900 L280,930 L260,900 Z" fill="{hx(tr)}"/><path d="M280,744 L280,926" stroke="#000" stroke-width="2" opacity=".2"/>')
+        for k in range(5):
+            b.append(f'<path d="M{120 + k * 70},730 L{100 + k * 70},960" stroke="{hx(od)}" stroke-width="2" opacity=".25"/>')
+    elif st == "rayyan":
+        b.append(f'<path d="M222,702 C246,742 314,742 338,702 L348,714 C322,768 238,768 212,714 Z" fill="{hx(darken(sk, .1))}"/>')
+        b.append(f'<path d="M232,700 C252,726 308,726 328,700" stroke="#d8d4cc" stroke-width="6" fill="none"/>')
+        b.append(f'<path d="M232,704 L196,820 C190,880 200,930 206,960 L354,960 C360,930 370,880 364,820 L328,704 C318,734 242,734 232,704 Z" fill="{hx(tr)}"/>')
+        b.append(f'<path d="M236,706 L258,770 M324,706 L302,770" stroke="{hx(tr)}" stroke-width="10"/>')
+        b.append('<rect x="238" y="860" width="84" height="52" rx="8" fill="#2c2c34" stroke="#4a4a54" stroke-width="3"/><rect x="298" y="840" width="6" height="30" fill="#e8c24a"/>')
+        b.append('<rect x="196" y="800" width="168" height="8" fill="#4a4a54" opacity=".7"/>')
+
+
 def sprite_torso(c):
     o, tr = c["outfit"], c["trim"]
     od, ol = darken(o, .22), lighten(o, .18)
@@ -426,6 +558,8 @@ def sprite_torso(c):
         b.append(f'<path d="M280,742 L280,960" stroke="{hx(od)}" stroke-width="4" opacity=".6"/>')
         for y in (790, 850, 910):
             b.append(f'<circle cx="280" cy="{y}" r="7" fill="#c9a24a"/><circle cx="278" cy="{y - 2}" r="2.4" fill="#fff" opacity=".7"/>')
+    if st in NEW_STYLES:
+        torso_new(c, b, o, ol, od, tr, sk)
     # seatbelt
     if c.get("belt"):
         b.append('<path d="M392,700 L330,960 L378,960 L440,716 Z" fill="#1c1c22"/><path d="M398,704 L346,960" stroke="#2c2c34" stroke-width="3"/>')

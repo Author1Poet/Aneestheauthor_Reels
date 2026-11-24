@@ -15,8 +15,8 @@ import imgops
 
 W, H, FPS = 1080, 1920, 30
 HH = H // 2
-TYPE_SPEED = {"ammi": .052, "hamza": .030, "sara": .024, "noor": .029}
-TONES = {"ammi": "marimba", "hamza": "tok", "sara": "chime", "noor": "ping"}
+TYPE_SPEED = {"ammi": .052, "hamza": .030, "sara": .024, "noor": .029, "abbu": .075, "zoya": .021, "daniyal": .028, "rayyan": .030}
+TONES = {"ammi": "marimba", "hamza": "tok", "sara": "chime", "noor": "ping", "abbu": "boom", "zoya": "bell", "daniyal": "pluck", "rayyan": "drop"}
 
 
 def clamp(x, a, b): return max(a, min(b, x))

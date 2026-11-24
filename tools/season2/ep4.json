@@ -1,0 +1,315 @@
+{
+ "chars": [
+  "daniyal",
+  "zoya"
+ ],
+ "scenes": [
+  {
+   "kind": "desk",
+   "variant": "hostel"
+  },
+  {
+   "kind": "car",
+   "variant": "street"
+  }
+ ],
+ "layout": [
+  "R",
+  "L"
+ ],
+ "places": [
+  "Office  ·  11:41 PM",
+  "Outside his building  ·  11:41 PM"
+ ],
+ "time_label": "Today 11:41 PM",
+ "start_emo": [
+  "tired",
+  "nervous"
+ ],
+ "start_look": [
+  "phone",
+  "phone"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Thursday, 26 November",
+  "time": "11:41",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Zoya",
+    "text": "ok",
+    "when": "6:12 PM"
+   },
+   {
+    "t": 0.55,
+    "title": "Zoya",
+    "text": "busy. talk later",
+    "when": "8:40 PM"
+   },
+   {
+    "t": 0.95,
+    "title": "Zoya",
+    "text": "👍",
+    "when": "10:15 PM"
+   },
+   {
+    "t": 1.35,
+    "title": "Birthday",
+    "text": "Your birthday ends in 19 minutes",
+    "when": "11:41 PM",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "It",
+    false
+   ],
+   [
+    "was",
+    false
+   ],
+   [
+    "his",
+    false
+   ],
+   [
+    "birthday.",
+    true
+   ]
+  ],
+  [
+   [
+    "Zoya",
+    false
+   ],
+   [
+    "only",
+    false
+   ],
+   [
+    "sent",
+    false
+   ],
+   [
+    "👍",
+    true
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "tired",
+    "nervous"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "zoya it's 11:41",
+   "emo": [
+    "tired",
+    "nervous"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "yes? lol",
+   "emo": [
+    "smirk",
+    "annoyed"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "my birthday ends in 19 minutes",
+   "emo": [
+    "hurt",
+    "smirk"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "oh is it today? 🙈",
+   "emo": [
+    "smirk",
+    "hurt"
+   ],
+   "pause": 0.6
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "wow. ok.",
+   "emo": [
+    "hurt",
+    "nervous"
+   ],
+   "pause": 0.7
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "don't be dramatic. what are you doing",
+   "emo": [
+    "nervous",
+    "hurt"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "working. like every other day. you're right, it's just a day",
+   "emo": [
+    "sad",
+    "worry"
+   ],
+   "pose": [
+    "face",
+    null
+   ],
+   "focus": 0,
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "daniyal. look outside your window",
+   "emo": [
+    "soft",
+    "shock"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "it's the 9th floor zoya",
+   "emo": [
+    "annoyed",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "just look",
+   "emo": [
+    "smile",
+    "nervous"
+   ]
+  },
+  {
+   "k": "beat",
+   "dur": 1.3,
+   "emo": [
+    "shock",
+    "smile"
+   ],
+   "look": [
+    "away",
+    "cam"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "ZOYA",
+   "emo": [
+    "shock",
+    "smirk"
+   ],
+   "burst": true
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "is that my mother. holding a cake. in a parking lot",
+   "emo": [
+    "laugh",
+    "laugh"
+   ],
+   "pose": [
+    "mouth",
+    null
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "your ammi brought biryani too. come down before it gets cold",
+   "emo": [
+    "laugh",
+    "laugh"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i thought you forgot",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "pose": [
+    "face",
+    null
+   ],
+   "pause": 0.9,
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "i hid it for 3 weeks. you are a terrible detective",
+   "emo": [
+    "soft",
+    "relief"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "coming. nobody sing without me",
+   "emo": [
+    "laugh",
+    "laugh"
+   ],
+   "stay": 2.2,
+   "pause": 1.0
+  }
+ ],
+ "closer": [
+  "Sometimes the quiet ones",
+  "are planning your whole day."
+ ],
+ "cta": "Tag the person who never forgets you",
+ "pad": [
+  110.0,
+  164.81,
+  220.0,
+  277.18
+ ],
+ "id": 4,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 4
+}

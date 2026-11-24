@@ -64,6 +64,14 @@ def phone_tone(kind):
         return _seq([(392, 0), (294, .11)], .6, .07, (1, .5, .2))
     if kind == "chime":     # Sara: soft glass chime
         return _seq([(1174.7, 0), (1568, .1), (2093, .2)], .38, .22, (1, .2))
+    if kind == "boom":      # Abbu: deep two-note
+        return _seq([(246.9, 0), (329.6, .13)], .6, .10, (1, .45, .15))
+    if kind == "bell":      # Zoya: bright bell triplet
+        return _seq([(1568, 0), (2093, .08), (1568, .17)], .32, .16, (1, .15))
+    if kind == "pluck":     # Daniyal: guitar-like pluck
+        return _seq([(523.3, 0), (659.3, .1), (784, .2)], .5, .08, (1, .4, .2))
+    if kind == "drop":      # Rayyan: water-drop
+        return _seq([(880, 0), (660, .11)], .5, .09, (1, .3))
     return _seq([(1318.5, 0), (1760, .09)], .45, .12, (1, .25))  # Noor: crisp ping
 
 
@@ -247,6 +255,24 @@ def make(ep, path):
             while 2.5 + k * 11 < dur:
                 m.add(2.5 + k * 11 - 1.2, swish(2.4, rng), pan, 1)
                 k += 1
+        elif kd == "kitchen":
+            m.add(0, rain_bed(dur, .02, .0, 31), pan, 1)
+            m.add(0, (lp(rng.normal(0, 1, n), 160, 1) * .05).astype(np.float32), pan, 1)
+            bub = (hp(lp(rng.normal(0, 1, n), 900, 2), 300, 1) * (0.5 + 0.5 * np.sin(np.arange(n) / SR * 7.0)) ** 6 * .10).astype(np.float32)
+            m.add(0, bub, pan, 1)
+        elif kd == "cafe":
+            m.add(0, rain_bed(dur, .06, .3, 32), pan, 1)
+            mur = (bp(rng.normal(0, 1, n), 200, 900) * (0.6 + 0.4 * np.sin(np.arange(n) / SR * 0.6)) * .035).astype(np.float32)
+            m.add(0, mur, pan, 1)
+            hiss = (hp(rng.normal(0, 1, n), 3000, 1) * (np.sin(np.arange(n) / SR * 0.25) > .93) * .05).astype(np.float32)
+            m.add(0, hiss, pan, 1)
+        elif kd == "desk":
+            m.add(0, rain_bed(dur, .05, .2, 33), pan, 1)
+            m.add(0, (lp(rng.normal(0, 1, n), 300, 1) * .03).astype(np.float32), pan, 1)
+            fan = (bp(rng.normal(0, 1, n), 90, 160) * .05).astype(np.float32)
+            m.add(0, fan, pan, 1)
+            for i in range(int(dur)):
+                m.add(i + .0, tick(rng), pan, .5)
         else:
             m.add(0, rain_bed(dur, .04, .2, 25), pan, 1)
             m.add(0, (lp(rng.normal(0, 1, n), 300, 1) * .04).astype(np.float32), pan, 1)

@@ -1,0 +1,338 @@
+{
+ "chars": [
+  "noor",
+  "daniyal"
+ ],
+ "scenes": [
+  {
+   "kind": "cafe",
+   "variant": "closing"
+  },
+  {
+   "kind": "car",
+   "variant": "street"
+  }
+ ],
+ "layout": [
+  "L",
+  "R"
+ ],
+ "places": [
+  "Café  ·  9:14 PM",
+  "Outside the café  ·  9:14 PM"
+ ],
+ "time_label": "Today 9:14 PM",
+ "start_emo": [
+  "hurt",
+  "nervous"
+ ],
+ "start_look": [
+  "phone",
+  "phone"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Tuesday, 1 December",
+  "time": "9:14",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Daniyal",
+    "text": "hey",
+    "when": "9:12 PM"
+   },
+   {
+    "t": 0.55,
+    "title": "Daniyal",
+    "text": "Missed call",
+    "when": "9:12 PM"
+   },
+   {
+    "t": 0.95,
+    "title": "Last message from Daniyal",
+    "text": "22 days ago",
+    "when": "Nov 9"
+   },
+   {
+    "t": 1.35,
+    "title": "Daniyal",
+    "text": "are you there?",
+    "when": "9:13 PM",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "He",
+    false
+   ],
+   [
+    "ignored",
+    false
+   ],
+   [
+    "her",
+    false
+   ],
+   [
+    "22",
+    true
+   ],
+   [
+    "days.",
+    true
+   ]
+  ],
+  [
+   [
+    "Tonight",
+    false
+   ],
+   [
+    "he",
+    false
+   ],
+   [
+    "texted",
+    false
+   ],
+   [
+    "'hey'",
+    true
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "hurt",
+    "nervous"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "hey",
+   "emo": [
+    "nervous",
+    "shock"
+   ],
+   "pause": 0.9
+  },
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "shock",
+    "nervous"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "i know it's been a while",
+   "emo": [
+    "nervous",
+    "hurt"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "22 days",
+   "emo": [
+    "hurt",
+    "nervous"
+   ],
+   "pause": 0.6
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "you counted?",
+   "emo": [
+    "nervous",
+    "hurt"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "every one of them. i'm done counting now",
+   "emo": [
+    "sad",
+    "worry"
+   ],
+   "focus": 0,
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "i was going through a lot. i didn't know how to talk to anyone",
+   "emo": [
+    "sad",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i know. i wanted to be that person. you never let me",
+   "emo": [
+    "hurt",
+    "hurt"
+   ],
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "can we talk? i'm outside",
+   "emo": [
+    "nervous",
+    "shock"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "outside where",
+   "emo": [
+    "shock",
+    "nervous"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "the café. in my car",
+   "emo": [
+    "nervous",
+    "shock"
+   ],
+   "pause": 0.6
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "the one with the broken tail light",
+   "emo": [
+    "soft",
+    "shock"
+   ],
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "you saw me?",
+   "emo": [
+    "shock",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "since 8:40. i didn't come out. i wanted to see if you'd come in",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    "chest",
+    null
+   ],
+   "focus": 0,
+   "pause": 1.0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "i'm sorry noor. i'm coming in",
+   "emo": [
+    "cry",
+    "hurt"
+   ],
+   "focus": 1,
+   "pause": 0.7
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "ghost": "please come in",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "ghost_hold": 1.2,
+   "pause": 0.4
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "don't. i'm not angry anymore. that's why you can't come in",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pause": 1.0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i missed you for 22 days. i won't wait 22 more",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "burst": true,
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "drive safe daniyal. text me when you reach",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "focus": 0,
+   "stay": 2.6,
+   "pause": 1.3
+  }
+ ],
+ "closer": [
+  "Missing you",
+  "isn't the same as",
+  "choosing you."
+ ],
+ "cta": "Send this to someone who needs to hear it",
+ "pad": [
+  123.47,
+  185.0,
+  246.94,
+  293.66
+ ],
+ "id": 9,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 9
+}

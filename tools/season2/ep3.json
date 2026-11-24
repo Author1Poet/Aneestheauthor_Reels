@@ -1,0 +1,320 @@
+{
+ "chars": [
+  "hamza",
+  "abbu"
+ ],
+ "scenes": [
+  {
+   "kind": "desk",
+   "variant": "hostel"
+  },
+  {
+   "kind": "livingroom"
+  }
+ ],
+ "layout": [
+  "R",
+  "L"
+ ],
+ "places": [
+  "Hostel  ·  10:04 PM",
+  "Home  ·  10:04 PM"
+ ],
+ "time_label": "Today 10:04 PM",
+ "start_emo": [
+  "tired",
+  "soft"
+ ],
+ "start_look": [
+  "phone",
+  "phone"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Wednesday, 25 November",
+  "time": "10:04",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Abbu",
+    "text": "Beta paise bhej diye hain. Mil gaye? - Abbu",
+    "when": "9:41 PM"
+   },
+   {
+    "t": 0.55,
+    "title": "Easypaisa",
+    "text": "Rs 25,000 received from ABBU",
+    "when": "9:41 PM"
+   },
+   {
+    "t": 0.95,
+    "title": "Abbu",
+    "text": "Khana kha liya? - Abbu",
+    "when": "9:58 PM"
+   },
+   {
+    "t": 1.35,
+    "title": "Abbu",
+    "text": "Kal bhi phone karunga - Abbu",
+    "when": "10:02 PM"
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "Abbu",
+    false
+   ],
+   [
+    "sent",
+    true
+   ],
+   [
+    "Rs",
+    false
+   ],
+   [
+    "25,000.",
+    false
+   ]
+  ],
+  [
+   [
+    "But",
+    false
+   ],
+   [
+    "where",
+    true
+   ],
+   [
+    "did",
+    false
+   ],
+   [
+    "it",
+    false
+   ],
+   [
+    "come",
+    false
+   ],
+   [
+    "from?",
+    false
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "tired",
+    "soft"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Beta paise mil gaye? - Abbu",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "mil gaye abbu. shukriya",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "ek baat puchun? aap har message ke end me apna naam kyun likhte hain 😭",
+   "emo": [
+    "smile",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Pata nahi kaun parh raha ho. - Abbu",
+   "emo": [
+    "smile",
+    "laugh"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "abbu 😭 mere alawa kaun parhega",
+   "emo": [
+    "laugh",
+    "smile"
+   ]
+  },
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "soft",
+    "soft"
+   ],
+   "look": [
+    "cam",
+    "phone"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "abbu itne paise kahan se aaye? fees to 40 hazaar thi",
+   "emo": [
+    "worry",
+    "nervous"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Bachat thi beta. - Abbu",
+   "emo": [
+    "nervous",
+    "worry"
+   ],
+   "hes": [
+    0.5,
+    0.8,
+    "away"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "kal fahad ne ek OLX ad bheji thi. Honda 70. 2014 model. Gulberg",
+   "emo": [
+    "nervous",
+    "worry"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Purani thi beta. Engine ka kaam nikalta rehta tha. - Abbu",
+   "emo": [
+    "hurt",
+    "hurt"
+   ],
+   "hes": [
+    0.4,
+    1.2,
+    "away"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "abbu wo aapki bike thi",
+   "emo": [
+    "cry",
+    "hurt"
+   ],
+   "pose": [
+    "face",
+    null
+   ],
+   "pause": 0.9,
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Masjid paas hai. Paidal chala jaata hoon. Sehat ke liye acha hai. - Abbu",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    "chest",
+    null
+   ],
+   "pause": 1.0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "ghost": "abbu main sharminda hoon",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "ghost_hold": 1.1,
+   "pause": 0.4
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "main wapas la dunga abbu. aapki bike bhi",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Pehle degree. - Abbu",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Baap ki bike beta hi chalata hai. Tum chalaoge. - Abbu",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "burst": true,
+   "stay": 2.2,
+   "focus": 0,
+   "pause": 1.2
+  }
+ ],
+ "closer": [
+  "Some fathers walk",
+  "so you can ride."
+ ],
+ "cta": "Send this to your Abbu",
+ "pad": [
+  98.0,
+  146.83,
+  196.0,
+  246.94
+ ],
+ "id": 3,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 3
+}

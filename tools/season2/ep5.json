@@ -1,0 +1,307 @@
+{
+ "chars": [
+  "hamza",
+  "ammi"
+ ],
+ "scenes": [
+  {
+   "kind": "desk",
+   "variant": "hostel"
+  },
+  {
+   "kind": "kitchen",
+   "variant": "dawn"
+  }
+ ],
+ "layout": [
+  "R",
+  "L"
+ ],
+ "places": [
+  "Hostel  ·  5:21 AM",
+  "Home  ·  5:21 AM"
+ ],
+ "time_label": "Today 5:21 AM",
+ "start_emo": [
+  "worry",
+  "soft"
+ ],
+ "start_look": [
+  "phone",
+  "phone"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Friday, 27 November",
+  "time": "5:21",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Ammi",
+    "text": "Beta uth gaye? Naashta mein kya banaun?",
+    "when": "5:02 AM"
+   },
+   {
+    "t": 0.55,
+    "title": "Ammi",
+    "text": "Aaloo paratha?",
+    "when": "5:06 AM"
+   },
+   {
+    "t": 0.95,
+    "title": "Daewoo Express",
+    "text": "Ticket confirmed: Lahore → Multan, 6:30 AM",
+    "when": "4:48 AM"
+   },
+   {
+    "t": 1.35,
+    "title": "Notes",
+    "text": "How do I tell Ammi...",
+    "when": "3:12 AM",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "He",
+    false
+   ],
+   [
+    "rehearsed",
+    false
+   ],
+   [
+    "one",
+    false
+   ],
+   [
+    "sentence",
+    false
+   ]
+  ],
+  [
+   [
+    "all",
+    false
+   ],
+   [
+    "night.",
+    false
+   ],
+   [
+    "She'd",
+    false
+   ],
+   [
+    "already",
+    true
+   ],
+   [
+    "known.",
+    false
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "worry",
+    "soft"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Beta uth gaye? Naashta mein kya banaun?",
+   "emo": [
+    "soft",
+    "nervous"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "ghost": "ammi meri job chali gayi",
+   "emo": [
+    "worry",
+    "soft"
+   ],
+   "ghost_hold": 1.2,
+   "pause": 0.4
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "kuch bhi ammi",
+   "emo": [
+    "tired",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Aaloo paratha banaun? Ya anda?",
+   "emo": [
+    "soft",
+    "nervous"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "ammi main aaj ghar aa raha hoon",
+   "emo": [
+    "nervous",
+    "soft"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Acha! Kitne din ke liye?",
+   "emo": [
+    "soft",
+    "worry"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "pata nahi. shayad kuch din. shayad zyada",
+   "emo": [
+    "sad",
+    "worry"
+   ],
+   "hes": [
+    0.5,
+    0.9,
+    "away"
+   ],
+   "focus": 0,
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "ammi mujhe job se nikal diya gaya",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "pose": [
+    "face",
+    null
+   ],
+   "pause": 1.1
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Pata hai",
+   "emo": [
+    "soft",
+    "shock"
+   ],
+   "focus": 1,
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "kya? kaise?",
+   "emo": [
+    "shock",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Fahad ki ammi ne do din pehle bata diya tha",
+   "emo": [
+    "soft",
+    "shock"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "to aap ne kuch kaha kyun nahi",
+   "emo": [
+    "hurt",
+    "soft"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Tum khud batate to acha lagta. Isliye intezar kiya",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    "chest",
+    null
+   ],
+   "focus": 1,
+   "pause": 0.9
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Tumhare kamre ki chadar badal di hai. Bas jaldi aa jao",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "burst": true,
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Naukri gayi hai beta. Tum to nahi gaye",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    "chest",
+    "face"
+   ],
+   "focus": 0,
+   "stay": 2.4,
+   "pause": 1.3
+  }
+ ],
+ "closer": [
+  "Home is the only place",
+  "that never asks",
+  "what you lost."
+ ],
+ "cta": "Send this to someone who needs to hear it",
+ "pad": [
+  123.47,
+  185.0,
+  246.94,
+  293.66
+ ],
+ "id": 5,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 5
+}

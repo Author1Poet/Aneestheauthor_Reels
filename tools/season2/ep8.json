@@ -1,0 +1,318 @@
+{
+ "chars": [
+  "abbu",
+  "ammi"
+ ],
+ "scenes": [
+  {
+   "kind": "car",
+   "variant": "pump"
+  },
+  {
+   "kind": "kitchen",
+   "variant": "night"
+  }
+ ],
+ "layout": [
+  "R",
+  "L"
+ ],
+ "places": [
+  "Petrol pump  ·  10:52 PM",
+  "Home  ·  10:52 PM"
+ ],
+ "time_label": "Today 10:52 PM",
+ "start_emo": [
+  "soft",
+  "soft"
+ ],
+ "start_look": [
+  "phone",
+  "phone"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Monday, 30 November",
+  "time": "10:52",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Zareena",
+    "text": "Kuch nahi",
+    "when": "1993"
+   },
+   {
+    "t": 0.55,
+    "title": "Zareena",
+    "text": "Kuch nahi chahiye",
+    "when": "2004"
+   },
+   {
+    "t": 0.95,
+    "title": "Zareena",
+    "text": "Aap thak gaye honge, kuch nahi",
+    "when": "2019"
+   },
+   {
+    "t": 1.35,
+    "title": "Zareena",
+    "text": "Mogre ke phool",
+    "when": "Tonight",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "Thirty",
+    false
+   ],
+   [
+    "years",
+    false
+   ],
+   [
+    "of",
+    false
+   ],
+   [
+    "'kuch",
+    true
+   ],
+   [
+    "nahi.'",
+    true
+   ]
+  ],
+  [
+   [
+    "Tonight",
+    false
+   ],
+   [
+    "she",
+    false
+   ],
+   [
+    "asked",
+    false
+   ],
+   [
+    "for",
+    false
+   ],
+   [
+    "something.",
+    true
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "soft",
+    "soft"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Kuch laana hai? - Abbu",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Nahi. Aap aa jao bas",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Pakka? Dukaan band hone wali hai - Abbu",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Kuch nahi chahiye. Aap jaldi aa jao",
+   "emo": [
+    "soft",
+    "soft"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Theek hai - Abbu",
+   "emo": [
+    "soft",
+    "nervous"
+   ],
+   "pause": 0.9
+  },
+  {
+   "k": "beat",
+   "dur": 1.2,
+   "emo": [
+    "soft",
+    "nervous"
+   ],
+   "look": [
+    "phone",
+    "away"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "ghost": "mogre ke phool",
+   "emo": [
+    "soft",
+    "soft"
+   ],
+   "ghost_hold": 1.3,
+   "pause": 0.4
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Raat bohat ho gayi. Pehle gaari mein petrol dalwa lena",
+   "emo": [
+    "soft",
+    "worry"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Petrol dal gaya. Ab bol - Abbu",
+   "emo": [
+    "smirk",
+    "shock"
+   ],
+   "pause": 0.6
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Kuch nahi",
+   "emo": [
+    "nervous",
+    "worry"
+   ],
+   "pause": 0.7
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Zareena. Tees saal ho gaye. Jab tum kuch nahi kehti ho to mujhe pata hota hai kuch hai - Abbu",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "focus": 0,
+   "pause": 1.0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "mogre ke phool. aaj achanak yaad aa gaye. shaadi wale din ke. par ab raat ko kahan milenge",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "pose": [
+    "chest",
+    null
+   ],
+   "focus": 1,
+   "pause": 1.0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Aa raha hoon - Abbu",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "Suno. pagal ho. raat ke 11 baj gaye hain",
+   "emo": [
+    "laugh",
+    "smile"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Gate pe aa jao - Abbu",
+   "emo": [
+    "smile",
+    "shock"
+   ],
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "kya?",
+   "emo": [
+    "shock",
+    "smile"
+   ],
+   "pause": 0.5
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Teen dukanon pe dhoonda. Aakhri wale ne kaha baji kal aaiye. Maine kaha meri biwi ne tees saal mein pehli baar kuch manga hai - Abbu",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "stay": 2.6,
+   "focus": 1,
+   "pause": 1.3
+  }
+ ],
+ "closer": [
+  "Love is hearing",
+  "what 'nothing' means."
+ ],
+ "cta": "Send this to your parents",
+ "pad": [
+  110.0,
+  164.81,
+  207.65,
+  277.18
+ ],
+ "id": 8,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 8
+}

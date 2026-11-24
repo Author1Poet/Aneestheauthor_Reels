@@ -1,0 +1,327 @@
+{
+ "chars": [
+  "sara",
+  "zoya"
+ ],
+ "scenes": [
+  {
+   "kind": "bedroom"
+  },
+  {
+   "kind": "desk",
+   "variant": "packing"
+  }
+ ],
+ "layout": [
+  "L",
+  "R"
+ ],
+ "places": [
+  "Home  ·  11:40 PM",
+  "Packing  ·  11:40 PM"
+ ],
+ "time_label": "Today 11:40 PM",
+ "start_emo": [
+  "tired",
+  "soft"
+ ],
+ "start_look": [
+  "phone",
+  "phone"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Saturday, 28 November",
+  "time": "11:40",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Zoya",
+    "text": "🎙 Voice message (4:12)",
+    "when": "Tuesday"
+   },
+   {
+    "t": 0.55,
+    "title": "Zoya",
+    "text": "🎙 Voice message (0:48)",
+    "when": "Wednesday"
+   },
+   {
+    "t": 0.95,
+    "title": "Zoya",
+    "text": "sara? you there?",
+    "when": "Thursday"
+   },
+   {
+    "t": 1.35,
+    "title": "Unplayed",
+    "text": "3 voice messages from Zoya",
+    "when": "Now",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "She",
+    false
+   ],
+   [
+    "never",
+    false
+   ],
+   [
+    "opened",
+    false
+   ]
+  ],
+  [
+   [
+    "Zoya's",
+    false
+   ],
+   [
+    "4:12",
+    true
+   ],
+   [
+    "voice",
+    true
+   ],
+   [
+    "note.",
+    true
+   ]
+  ]
+ ],
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "tired",
+    "soft"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "heyyy awake?",
+   "emo": [
+    "soft",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "yes!! sorry i've been so busy. i'll listen to your voice notes this weekend i promise",
+   "emo": [
+    "smile",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "it's okay 🙂 no rush",
+   "emo": [
+    "soft",
+    "hurt"
+   ],
+   "pause": 0.6
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "how's work? still crazy?",
+   "emo": [
+    "soft",
+    "hurt"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "ya. btw my flight is at 6am lol",
+   "emo": [
+    "nervous",
+    "shock"
+   ],
+   "hes": [
+    0.5,
+    0.7,
+    "away"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "6am where? for the conference??",
+   "emo": [
+    "worry",
+    "nervous"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "dubai. the job thing. i told you in the voice note. like 3 days ago",
+   "emo": [
+    "hurt",
+    "shock"
+   ],
+   "pause": 0.8,
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "WHAT",
+   "emo": [
+    "shock",
+    "hurt"
+   ],
+   "burst": true
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "zoya you're LEAVING?",
+   "emo": [
+    "shock",
+    "cry"
+   ],
+   "pose": [
+    "mouth",
+    null
+   ],
+   "focus": 0,
+   "pause": 0.7
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "for 2 years. i didn't know how to say it in a text",
+   "emo": [
+    "cry",
+    "hurt"
+   ],
+   "pose": [
+    null,
+    "face"
+   ],
+   "pause": 1.0
+  },
+  {
+   "k": "beat",
+   "dur": 1.2,
+   "emo": [
+    "sad",
+    "cry"
+   ],
+   "look": [
+    "phone",
+    "away"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i'm playing it right now",
+   "emo": [
+    "cry",
+    "hurt"
+   ],
+   "pose": [
+    "face",
+    null
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "you said 'thank you for never being too busy for me'",
+   "emo": [
+    "cry",
+    "cry"
+   ],
+   "pause": 1.0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i was ALWAYS too busy",
+   "emo": [
+    "cry",
+    "cry"
+   ],
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "you were there when it mattered. that's all i meant",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "focus": 1,
+   "pause": 0.8
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i'm coming to the airport. 6am",
+   "emo": [
+    "cry",
+    "soft"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "sara that's 4am drive. nobody does that",
+   "emo": [
+    "soft",
+    "cry"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "i do",
+   "emo": [
+    "cry",
+    "cry"
+   ],
+   "stay": 2.4,
+   "focus": 0,
+   "pause": 1.2
+  }
+ ],
+ "closer": [
+  "Play the voice note.",
+  "Some goodbyes arrive",
+  "in 4 minutes and 12 seconds."
+ ],
+ "cta": "Send this to someone whose voice notes you've been ignoring",
+ "pad": [
+  98.0,
+  146.83,
+  196.0,
+  246.94
+ ],
+ "id": 6,
+ "hook_y": 1480,
+ "hook_size": 64,
+ "follow": "New story every night at 10 PM",
+ "seed": 6
+}

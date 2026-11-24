@@ -298,7 +298,7 @@ class Actor:
 if __name__ == "__main__":
     import sys
     sheet = Image.new("RGB", (560 * 4, 960 * 2), (70, 60, 80))
-    names = ["ammi", "hamza", "sara", "noor"]
+    names = ["abbu", "zoya", "daniyal", "rayyan"]
     sets = [("neutral", "hold", 3.0), ("cry", "face", 6.0)]
     for r_, (emo, pose, t) in enumerate(sets):
         for i, n in enumerate(names):
