@@ -1,0 +1,320 @@
+{
+ "id": 1,
+ "chars": [
+  "ammi",
+  "hamza"
+ ],
+ "scenes": [
+  {
+   "kind": "livingroom"
+  },
+  {
+   "kind": "car",
+   "variant": "pump"
+  }
+ ],
+ "layout": [
+  "L",
+  "R"
+ ],
+ "places": [
+  "Home  ·  1:12 AM",
+  "Petrol pump  ·  1:12 AM"
+ ],
+ "time_label": "Today 1:12 AM",
+ "start_emo": [
+  "worry",
+  "tired"
+ ],
+ "start_look": [
+  "phone",
+  "far"
+ ],
+ "lock": {
+  "dur": 2.7,
+  "date": "Tuesday, 24 November",
+  "time": "1:12",
+  "cards": [
+   {
+    "t": 0.15,
+    "title": "Ammi",
+    "text": "beta pohanch gaye?",
+    "when": "12:41 AM"
+   },
+   {
+    "t": 0.55,
+    "title": "Ammi",
+    "text": "call utha lo ek baar",
+    "when": "12:58 AM"
+   },
+   {
+    "t": 0.95,
+    "title": "Ammi",
+    "text": "beta? 🥺",
+    "when": "1:07 AM"
+   },
+   {
+    "t": 1.35,
+    "title": "Missed call",
+    "text": "Ammi · 14 missed calls",
+    "when": "1:11 AM",
+    "red": true
+   }
+  ]
+ },
+ "hook": [
+  [
+   [
+    "14",
+    true
+   ],
+   [
+    "missed",
+    false
+   ],
+   [
+    "calls.",
+    false
+   ]
+  ],
+  [
+   [
+    "He",
+    false
+   ],
+   [
+    "saw",
+    false
+   ],
+   [
+    "every",
+    false
+   ],
+   [
+    "one.",
+    true
+   ]
+  ]
+ ],
+ "hook_y": 1500,
+ "beats": [
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "worry",
+    "hurt"
+   ],
+   "look": [
+    "phone",
+    "far"
+   ],
+   "focus": 0
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "beta pohanch gaye?",
+   "emo": [
+    "worry",
+    "hurt"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "call utha lo ek baar",
+   "burst": true,
+   "emo": [
+    "sad",
+    "sad"
+   ]
+  },
+  {
+   "k": "beat",
+   "dur": 1.0,
+   "emo": [
+    "worry",
+    "sad"
+   ],
+   "look": [
+    "up",
+    "away"
+   ],
+   "pose": [
+    null,
+    "lap"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "sorry ammi. battery khatam thi",
+   "hes": [
+    0.55,
+    0.9,
+    "away"
+   ],
+   "emo": [
+    "nervous",
+    "relief"
+   ],
+   "pose": [
+    null,
+    "chest"
+   ],
+   "pause": 0.7
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "Allah ka shukar 🤲",
+   "emo": [
+    "relief",
+    "hurt"
+   ],
+   "pose": [
+    "chest",
+    null
+   ],
+   "stay": 1.8
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "haan. petrol pump pe ruka hoon. baarish bohat hai",
+   "emo": [
+    "neutral",
+    "soft"
+   ],
+   "look": [
+    "phone",
+    "phone"
+   ]
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "tum chhote the to school van aane tak gate pe khadi rehti thi",
+   "emo": [
+    "soft",
+    "sad"
+   ],
+   "focus": 0,
+   "pause": 0.91
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "ab bas phone hai",
+   "burst": true,
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    null,
+    "face"
+   ],
+   "pause": 0.98
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "ghost": "ammi i love you",
+   "emo": [
+    "cry",
+    "worry"
+   ],
+   "ghost_hold": 1.0,
+   "pause": 0.35
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "aap so jao ammi. main pohanch ke bata dunga",
+   "emo": [
+    "sad",
+    "worry"
+   ],
+   "focus": 1
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "location dekh rahi hoon. tum 40 minute se wahin ho",
+   "emo": [
+    "soft",
+    "shock"
+   ],
+   "pose": [
+    null,
+    "mouth"
+   ],
+   "pause": 0.77
+  },
+  {
+   "k": "msg",
+   "who": 1,
+   "text": "baarish hai ammi",
+   "emo": [
+    "cry",
+    "soft"
+   ],
+   "pose": [
+    "face",
+    null
+   ],
+   "keep": false
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "baarish gaari ke andar nahi hoti beta",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    "chest",
+    "face"
+   ],
+   "stay": 2.0,
+   "focus": 1,
+   "pause": 1.26
+  },
+  {
+   "k": "msg",
+   "who": 0,
+   "text": "ghar aa jao. batti jalti rahegi",
+   "emo": [
+    "soft",
+    "cry"
+   ],
+   "pose": [
+    "chest",
+    "mouth"
+   ],
+   "focus": 1,
+   "stay": 2.0,
+   "pause": 1.4
+  }
+ ],
+ "closer": [
+  "Some mothers don't sleep",
+  "until you're home."
+ ],
+ "cta": "Send this to your Ammi",
+ "follow": "New story every night at 10 PM",
+ "pad": [
+  110.0,
+  164.81,
+  220.0,
+  261.63
+ ]
+}
